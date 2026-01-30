@@ -1,0 +1,241 @@
+.plastic-pollution-section {
+    width: 100%;
+    margin: 0;
+    padding: 80px 20px;
+    font-family: 'Outfit', sans-serif;
+    color: #ffffff;
+    position: relative;
+    background-color: #ffffff;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-sizing: border-box;
+}
+
+/* Header */
+.pp-header {
+    width: 100%;
+    max-width: 1200px;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 100px;
+    gap: 40px;
+}
+
+.pp-header-content {
+    flex: 1;
+    max-width: 600px;
+}
+
+.pp-title {
+    font-size: 48px;
+    font-weight: 800;
+    color: #2c3e50;
+    margin-bottom: 24px;
+    text-transform: uppercase;
+    /* Adjust based on image if needed */
+    letter-spacing: 0.5px;
+}
+
+.pp-description {
+    font-size: 16px;
+    line-height: 1.6;
+    color: #555;
+    margin-bottom: 20px;
+}
+
+.pp-header-image {
+    flex: 1;
+    max-width: 500px;
+}
+
+.pp-header-image img {
+    width: 100%;
+    height: auto;
+    border-radius: 4px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+/* Timeline Container */
+.pp-timeline {
+    position: relative;
+    max-width: 1000px;
+    margin: 0 auto;
+    /* padding so the svg fits */
+    padding: 20px 0;
+}
+
+/* The SVG Line */
+.pp-dashed-line-svg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    pointer-events: none;
+}
+
+/* Timeline Items */
+.pp-item {
+    display: flex;
+    align-items: center;
+    position: relative;
+    z-index: 2;
+    margin-bottom: 50px;
+    /* Spacing between steps */
+    min-height: 200px;
+}
+
+/* Alternating layout roughly based on the image's flow */
+/* Adjust these to match the specific "snake" layout */
+
+/* Item 1: Single Use Plastics (Left aligned image, text right) */
+.pp-item-1 {
+    justify-content: flex-start;
+    padding-left: 0;
+}
+
+.pp-item-1 .pp-text-content {
+    margin-left: 250px;
+    margin-top: -50px;
+}
+
+.pp-item-1 .pp-img-container {
+    width: 120px;
+    /* Approximate size from image */
+}
+
+/* Item 2: Use and Disposal (Right side) */
+.pp-item-2 {
+    justify-content: flex-end;
+    margin-top: 50px;
+}
+
+.pp-item-2 .pp-img-container {
+    margin-right: 30px;
+    width: 150px;
+}
+
+.pp-item-2 .pp-text-content {
+    max-width: 400px;
+}
+
+/* Item 3: Fragmentation (Left side, lower) */
+.pp-item-3 {
+    justify-content: flex-start;
+    margin-top: 50px;
+    margin-left: 50px;
+}
+
+.pp-item-3 .pp-img-container {
+    width: 200px;
+    margin-right: 30px;
+}
+
+.pp-item-3 .pp-text-content {
+    max-width: 400px;
+}
+
+/* Item 4: Transportation (Right side) */
+.pp-item-4 {
+    justify-content: flex-end;
+    margin-top: 50px;
+}
+
+.pp-item-4 .pp-img-container {
+    width: 200px;
+    margin-right: 30px;
+}
+
+.pp-item-4 .pp-text-content {
+    max-width: 400px;
+}
+
+/* Item 5: Accumulation (Left side, bottom) */
+.pp-item-5 {
+    justify-content: flex-start;
+    margin-top: 50px;
+    align-items: center;
+}
+
+.pp-item-5 .pp-img-container {
+    width: 300px;
+    margin-right: 40px;
+}
+
+.pp-item-5 .pp-text-content {
+    max-width: 450px;
+}
+
+
+/* Common Styles */
+.pp-text-content {
+    max-width: 500px;
+}
+
+.pp-item-title {
+    font-size: 24px;
+    font-weight: 700;
+    color: #34495e;
+    margin-bottom: 12px;
+}
+
+.pp-item-desc {
+    font-size: 14px;
+    line-height: 1.5;
+    color: #666;
+}
+
+.pp-img-container img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .pp-header {
+        flex-direction: column;
+    }
+
+    .pp-title {
+        font-size: 36px;
+    }
+
+    .pp-timeline {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .pp-item {
+        flex-direction: column;
+        align-items: flex-start;
+        margin-bottom: 60px;
+    }
+
+    .pp-item-1 .pp-text-content,
+    .pp-item-2 .pp-text-content,
+    .pp-item-3 .pp-text-content,
+    .pp-item-4 .pp-text-content,
+    .pp-item-5 .pp-text-content {
+        margin: 20px 0 0 0;
+        max-width: 100%;
+    }
+
+    .pp-item-2,
+    .pp-item-4 {
+        align-items: flex-start;
+    }
+
+    .pp-dashed-line-svg {
+        display: none;
+        /* Hide complex line on mobile for now */
+    }
+
+    .pp-img-container {
+        width: 100px !important;
+    }
+}

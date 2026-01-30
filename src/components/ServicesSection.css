@@ -1,0 +1,222 @@
+.services-section {
+    background-color: #f6f1f1;
+    color: #ffffff;
+    padding: 100px 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-family: 'Outfit', sans-serif;
+    overflow: hidden;
+}
+
+.services-header {
+    text-align: center;
+    margin-bottom: 60px;
+    max-width: 700px;
+}
+
+.services-label {
+    color: #4a686a;
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-weight: 600;
+    margin-bottom: 20px;
+    display: block;
+}
+
+.services-title {
+    font-size: 56px;
+    line-height: 1.1;
+    margin-bottom: 20px;
+    font-weight: 700;
+    /* Using a dark cyan that is readable on black, trying to match the image's vibe */
+    color: #1a6b73;
+}
+
+.services-subtitle {
+    color: #2f565a;
+    font-size: 20px;
+    line-height: 1.5;
+    font-weight: 400;
+}
+
+.services-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+    width: 100%;
+    max-width: 1200px;
+}
+
+.service-card {
+    border-radius: 48px;
+    padding: 60px 50px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-height: 500px;
+    transition: transform 0.3s ease;
+}
+
+.service-card:hover {
+    transform: translateY(-5px);
+}
+
+.card-mindfulness {
+    background-color: #FDF0DD;
+}
+
+.card-therapy {
+    background-color: #FFFFFF;
+}
+
+.card-coaching {
+    grid-column: span 2;
+    background-color: #FFFFFF;
+    flex-direction: row;
+    align-items: center;
+    padding: 60px 80px 60px 60px;
+    min-height: 450px;
+}
+
+.card-content {
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    height: 100%;
+    justify-content: space-between;
+}
+
+.card-mindfulness .card-content,
+.card-therapy .card-content {
+    max-width: 100%;
+}
+
+.card-coaching .card-content {
+    max-width: 50%;
+    justify-content: center;
+    gap: 30px;
+}
+
+.service-title {
+    font-size: 40px;
+    font-weight: 600;
+    line-height: 1.2;
+    color: #013237;
+    margin-bottom: 20px;
+}
+
+.service-desc {
+    font-size: 18px;
+    line-height: 1.6;
+    color: #1F4B4B;
+    margin-bottom: 40px;
+    max-width: 90%;
+}
+
+.service-btn {
+    padding: 14px 36px;
+    border-radius: 100px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    background: transparent;
+    transition: all 0.3s ease;
+}
+
+.btn-outline {
+    border: 1px solid #013237;
+    color: #013237;
+    background: transparent;
+}
+
+.btn-outline:hover {
+    background: #013237;
+    color: #ffffff;
+}
+
+.btn-filled {
+    background: #013237;
+    color: #ffffff;
+    border: 1px solid #013237;
+}
+
+.btn-filled:hover {
+    background: #024b52;
+    border-color: #024b52;
+}
+
+/* Specific Card Adjustments */
+.card-mindfulness .service-desc {
+    max-width: 70%;
+}
+
+.mindfulness-img {
+    position: absolute;
+    right: 30px;
+    bottom: 30px;
+    width: 250px;
+    height: auto;
+    object-fit: contain;
+    mix-blend-mode: multiply;
+}
+
+.coaching-img-container {
+    flex: 1;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    height: 100%;
+}
+
+.coaching-img {
+    width: 100%;
+    max-width: 450px;
+    height: auto;
+    object-fit: contain;
+}
+
+@media (max-width: 992px) {
+    .services-title {
+        font-size: 42px;
+    }
+
+    .service-card {
+        padding: 40px;
+        min-height: 400px;
+    }
+
+    .card-coaching {
+        flex-direction: column-reverse;
+        /* Image on bottom if cramped? Or top? */
+        text-align: left;
+        align-items: flex-start;
+    }
+
+    .card-coaching .card-content {
+        max-width: 100%;
+        margin-top: 30px;
+    }
+
+    .coaching-img-container {
+        width: 100%;
+        justify-content: center;
+    }
+}
+
+@media (max-width: 768px) {
+    .services-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .card-coaching {
+        grid-column: span 1;
+    }
+
+    .service-title {
+        font-size: 32px;
+    }
+}

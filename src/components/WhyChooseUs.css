@@ -1,0 +1,133 @@
+.wcu-section {
+    background-color: #f7f9fc;
+    /* Very light cool grey/blue tint based on image */
+    padding: 100px 20px;
+    font-family: 'Outfit', sans-serif;
+    color: #1a1a1a;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.wcu-title {
+    font-size: 36px;
+    font-weight: 700;
+    color: #222;
+    margin-bottom: 80px;
+    text-align: center;
+}
+
+.wcu-container {
+    max-width: 1200px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 100px;
+}
+
+.wcu-row {
+    display: flex;
+    align-items: center;
+    gap: 60px;
+    justify-content: space-between;
+}
+
+.wcu-row.reverse {
+    flex-direction: row-reverse;
+}
+
+.wcu-text-col,
+.wcu-img-col {
+    flex: 1;
+}
+
+.wcu-text-col h3 {
+    font-size: 28px;
+    font-weight: 700;
+    line-height: 1.3;
+    margin-bottom: 20px;
+    color: #000;
+}
+
+.wcu-text-col ul {
+    list-style-type: disc;
+    padding-left: 20px;
+    margin-bottom: 30px;
+    color: #444;
+}
+
+.wcu-text-col li {
+    font-size: 16px;
+    line-height: 1.6;
+    margin-bottom: 10px;
+}
+
+.wcu-read-more {
+    background-color: #314b6e;
+    /* Dark slate blue */
+    color: #ffffff;
+    border: none;
+    padding: 12px 24px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    border-radius: 4px;
+    transition: background-color 0.3s;
+}
+
+.wcu-read-more:hover {
+    background-color: #253a57;
+}
+
+.wcu-img-container {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+    /* Optional: shadow or border radius if needed, image looks clean in design */
+}
+
+.wcu-img {
+    width: 100%;
+    height: auto;
+    display: block;
+    object-fit: cover;
+}
+
+/* Specific styling for the first image text overlay */
+.wcu-overlay-text {
+    position: absolute;
+    bottom: 20%;
+    /* Approximately */
+    left: 0;
+    width: 100%;
+    text-align: center;
+    color: rgba(255, 255, 255, 0.9);
+    font-size: 24px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+    background: rgba(49, 75, 110, 0.6);
+    /* Semi-transparent blue bar */
+    padding: 15px 0;
+}
+
+/* Icon overlay for sustainable - hard to do perfectly with CSS only without icons, 
+   but the generated image should have them. 
+   If not, I might need to add simple overlays if the user demands exact icons not in image.
+   Assuming generated image is sufficient for now. */
+
+@media (max-width: 900px) {
+    .wcu-row {
+        flex-direction: column;
+        gap: 40px;
+    }
+
+    .wcu-row.reverse {
+        flex-direction: column;
+    }
+
+    .wcu-text-col h3 {
+        font-size: 24px;
+    }
+}
