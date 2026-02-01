@@ -1,51 +1,74 @@
-import React from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import './SolutionsSection.css';
 
 const solutions = [
     {
         id: '01',
-        title: 'Technology Irrigation',
-        // Using a nice green field with equipment or rows
-        image: 'https://images.pexels.com/photos/12026171/pexels-photo-12026171.jpeg',
+        title: 'Crops',
+        // Representation of abundant crops
+        image: 'https://images.pexels.com/photos/974314/pexels-photo-974314.jpeg?auto=compress&cs=tinysrgb&w=800',
         stagger: false,
     },
     {
         id: '02',
-        title: 'Organic Fertilizer',
-        // Rolling hills/fields
-        image: 'https://images.pexels.com/photos/16212406/pexels-photo-16212406.jpeg',
+        title: 'Temples',
+        // Representation of cultural heritage
+        image: 'https://images.pexels.com/photos/2161467/pexels-photo-2161467.jpeg?auto=compress&cs=tinysrgb&w=800',
         stagger: true,
     },
     {
         id: '03',
-        title: 'Technology Irrigation',
-        // Grazing cows in green field
-        image: 'https://images.pexels.com/photos/16216968/pexels-photo-16216968.png',
+        title: 'Cottages',
+        // Representation of eco-living
+        image: 'https://images.pexels.com/photos/206648/pexels-photo-206648.jpeg?auto=compress&cs=tinysrgb&w=800',
         stagger: false,
-    },
-    {
-        id: '04',
-        title: 'Agricultural Monitoring',
-        // Tractor collecting/working
-        image: 'https://images.pexels.com/photos/6225638/pexels-photo-6225638.jpeg',
-        stagger: true,
     }
 ];
 
 const SolutionsSection = () => {
+    const [isVisible, setIsVisible] = useState(false);
+    const gridRef = useRef(null);
+
+    useEffect(() => {
+        const observer = new IntersectionObserver(
+            (entries) => {
+                const [entry] = entries;
+                if (entry.isIntersecting) {
+                    setIsVisible(true);
+                    observer.disconnect(); // Only animate once
+                }
+            },
+            { threshold: 0.2 } // Trigger when 20% visible
+        );
+
+        if (gridRef.current) {
+            observer.observe(gridRef.current);
+        }
+
+        return () => {
+            if (gridRef.current) observer.disconnect();
+        };
+    }, []);
+
     return (
         <div className="solutions-container">
             <section className="solutions-section">
                 <div className="solutions-header">
-                    <h2>Next-Gen Solutions For<br />Optimal Crop Growth</h2>
-                    <p>
-                        We provide cutting-edge services to help farmers maximize crop yields. Our precision farming, crop monitoring, and automation solutions aim to revolutionize agriculture.
-                    </p>
+                    <h2>Harvest Hope, Cultivate Change <br />Welcome to Sanjeevani Foundation</h2>
+                    <div className="header-right-content">
+                        <p>
+                            Imagine a thriving 1500-acre eco-habitat where natural farming meets luxury wellness, cultural heritage, and community care. We're turning Odisha's soil into a sustainable paradise for farmers, families, and future generations. Ready to plant your roots in this revolutionary project?
+                        </p>
+                        <div className="header-buttons">
+                            <button className="btn-primary">Join as Member Secure Your Land Today!</button>
+                            <button className="btn-secondary">Explore the Project Donate Now</button>
+                        </div>
+                    </div>
                 </div>
 
-                <div className="solutions-grid">
+                <div className="solutions-grid" ref={gridRef}>
                     {solutions.map((item) => (
-                        <div key={item.id} className={`solution-card ${item.stagger ? 'stagger-low' : ''}`}>
+                        <div key={item.id} className={`solution-card ${item.stagger ? 'stagger-low' : ''} ${isVisible ? 'visible' : ''}`}>
                             <img src={item.image} alt={item.title} />
                             <div className="solution-card-label">
                                 <span>{item.id}</span>

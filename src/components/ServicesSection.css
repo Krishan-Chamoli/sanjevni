@@ -26,7 +26,7 @@
 }
 
 .services-title {
-    font-size: 56px;
+    font-size: 50px;
     line-height: 1.1;
     margin-bottom: 20px;
     font-weight: 700;
@@ -36,7 +36,7 @@
 
 .services-subtitle {
     color: #2f565a;
-    font-size: 20px;
+    font-size: 18px;
     line-height: 1.5;
     font-weight: 400;
 }
@@ -219,4 +219,54 @@
     .service-title {
         font-size: 32px;
     }
+}
+
+/* Pricing Table Styles */
+.pricing-table-container {
+    width: 100%;
+    overflow-x: auto;
+    background: #ffffff;
+    border-radius: 20px;
+    padding: 15px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+}
+
+.pricing-table {
+    width: 100%;
+    border-collapse: collapse;
+    min-width: 500px;
+    /* Ensure readability on mobile */
+    color: #1F4B4B;
+    font-size: 14px;
+}
+
+.pricing-table th,
+.pricing-table td {
+    text-align: left;
+    padding: 12px 15px;
+    border-bottom: 1px solid #f0f0f0;
+}
+
+.pricing-table th {
+    font-weight: 700;
+    color: #013237;
+    text-transform: uppercase;
+    font-size: 12px;
+    letter-spacing: 1px;
+    background-color: #f9fdfd;
+}
+
+.pricing-table tr:hover {
+    background-color: #fafafa;
+}
+
+.pricing-table tr:last-child td {
+    border-bottom: none;
+}
+
+/* Adjust card coaching container for table */
+.card-coaching .coaching-img-container {
+    display: block;
+    /* Override flex alignment for table */
+    overflow: hidden;
 }

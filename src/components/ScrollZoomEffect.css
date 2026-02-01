@@ -19,6 +19,8 @@
 .content .section {
   width: 100%;
   height: 100vh;
+  height: 100dvh;
+  /* Mobile fallback */
 }
 
 .content .section.hero {
@@ -31,6 +33,8 @@
 .image-container {
   width: 100%;
   height: 100vh;
+  height: 100dvh;
+  /* Mobile fallback */
   position: absolute;
   top: 0;
   left: 0;
@@ -45,4 +49,38 @@
   height: 100%;
   object-fit: cover;
   object-position: center center;
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+  .image-container {
+    perspective: 1000px;
+    /* Reduce perspective distortion on small screens */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100dvh;
+    overflow: hidden;
+    /* Ensure shadow doesn't trigger scroll */
+  }
+
+  .image-container img {
+    width: 100%;
+    height: auto;
+    /* Maintain aspect ratio */
+    object-fit: contain;
+    /* Show full image */
+    max-height: 100dvh;
+    /* Create a matte to hide the background layer (grassland) above/below the image 
+       without blocking the transparent hole inside the image */
+    box-shadow: 0 0 0 100vmax #1a1a1a;
+    background-color: transparent;
+    /* Ensure no background behind the hole */
+  }
+
+  .content .section.hero {
+    background-position: center center;
+    /* Centered positioning for better visibility on mobile */
+  }
 }

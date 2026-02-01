@@ -20,7 +20,7 @@
     display: flex;
     justify-content: space-between;
     align-items: flex-start;
-    margin-bottom: 100px;
+    margin-bottom: 150px;
     gap: 40px;
 }
 
@@ -32,11 +32,12 @@
 .pp-title {
     font-size: 48px;
     font-weight: 800;
-    color: #2c3e50;
+    color: #2e7d32;
+    /* Natural Green */
     margin-bottom: 24px;
     text-transform: uppercase;
-    /* Adjust based on image if needed */
     letter-spacing: 0.5px;
+    line-height: 1.1;
 }
 
 .pp-description {
@@ -44,6 +45,16 @@
     line-height: 1.6;
     color: #555;
     margin-bottom: 20px;
+}
+
+.pp-hook {
+    font-size: 1.1rem;
+    color: #2e7d32;
+    margin-top: 20px;
+    padding: 15px;
+    background: #e8f5e9;
+    border-left: 4px solid #2e7d32;
+    border-radius: 0 4px 4px 0;
 }
 
 .pp-header-image {
@@ -54,16 +65,17 @@
 .pp-header-image img {
     width: 100%;
     height: auto;
-    border-radius: 4px;
+    border-radius: 12px;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
 
 /* Timeline Container */
 .pp-timeline {
     position: relative;
-    max-width: 1000px;
+    max-width: 1200px;
+    /* Increased width */
+    width: 100%;
     margin: 0 auto;
-    /* padding so the svg fits */
     padding: 20px 0;
 }
 
@@ -76,166 +88,162 @@
     height: 100%;
     z-index: 1;
     pointer-events: none;
+    overflow: visible;
 }
 
 /* Timeline Items */
 .pp-item {
     display: flex;
     align-items: center;
+    justify-content: space-between;
     position: relative;
     z-index: 2;
-    margin-bottom: 50px;
-    /* Spacing between steps */
-    min-height: 200px;
+    margin-bottom: 250px;
+    /* Uniform spacing */
+    min-height: 250px;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+    width: 100%;
 }
 
-/* Alternating layout roughly based on the image's flow */
-/* Adjust these to match the specific "snake" layout */
-
-/* Item 1: Single Use Plastics (Left aligned image, text right) */
-.pp-item-1 {
-    justify-content: flex-start;
-    padding-left: 0;
+.pp-item:hover {
+    transform: translateY(-5px);
 }
 
-.pp-item-1 .pp-text-content {
-    margin-left: 250px;
-    margin-top: -50px;
+.pp-item.active .pp-img-container {
+    transform: scale(1.05);
+    box-shadow: 0 8px 24px rgba(46, 125, 50, 0.3);
 }
 
-.pp-item-1 .pp-img-container {
-    width: 120px;
-    /* Approximate size from image */
+.pp-item.active .pp-item-title {
+    color: #2e7d32;
 }
 
-/* Item 2: Use and Disposal (Right side) */
-.pp-item-2 {
-    justify-content: flex-end;
-    margin-top: 50px;
+/* Common Styles for Content */
+.pp-text-content {
+    width: 45%;
+    padding: 0 20px;
 }
 
-.pp-item-2 .pp-img-container {
-    margin-right: 30px;
-    width: 150px;
+.pp-img-container {
+    width: 400px;
+    /* Fixed uniformly */
+    height: 250px;
+    position: relative;
 }
 
-.pp-item-2 .pp-text-content {
-    max-width: 400px;
+.pp-img-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    transition: all 0.4s ease;
 }
 
-/* Item 3: Fragmentation (Left side, lower) */
-.pp-item-3 {
-    justify-content: flex-start;
-    margin-top: 50px;
+/* Odd Items (1, 3, 5) - Image Left */
+.pp-item-odd {
+    flex-direction: row;
+    text-align: left;
+}
+
+.pp-item-odd .pp-img-container {
+    margin-right: auto;
+    /* Align image to the start of the path concept */
     margin-left: 50px;
 }
 
-.pp-item-3 .pp-img-container {
-    width: 200px;
-    margin-right: 30px;
+.pp-item-odd .pp-text-content {
+    margin-left: auto;
+    width: 500px;
 }
 
-.pp-item-3 .pp-text-content {
-    max-width: 400px;
+/* Even Items (2, 4, 6) - Image Right */
+.pp-item-even {
+    flex-direction: row-reverse;
+    text-align: left;
+    /* Keep text left-aligned for readability usually, or right if desired? */
 }
 
-/* Item 4: Transportation (Right side) */
-.pp-item-4 {
-    justify-content: flex-end;
-    margin-top: 50px;
+/* If users want text next to photo, text-align usually opposite to image location often looks best, 
+   but strictly left aligned text is easier to read. Let's stick to natural flow.
+*/
+.pp-item-even .pp-img-container {
+    margin-left: auto;
+    margin-right: 50px;
 }
 
-.pp-item-4 .pp-img-container {
-    width: 200px;
-    margin-right: 30px;
+.pp-item-even .pp-text-content {
+    margin-right: auto;
+    width: 500px;
+    text-align: right;
 }
 
-.pp-item-4 .pp-text-content {
-    max-width: 400px;
+/* Specific fix for Item 6 alignment */
+.pp-item-6 {
+    align-items: flex-start;
 }
 
-/* Item 5: Accumulation (Left side, bottom) */
-.pp-item-5 {
-    justify-content: flex-start;
-    margin-top: 50px;
-    align-items: center;
+.pp-item-6 .pp-img-container {
+    margin-top: 280px;
 }
 
-.pp-item-5 .pp-img-container {
-    width: 300px;
-    margin-right: 40px;
-}
-
-.pp-item-5 .pp-text-content {
-    max-width: 450px;
-}
-
-
-/* Common Styles */
-.pp-text-content {
-    max-width: 500px;
+.pp-item-6 .pp-text-content {
+    margin-top: 100px;
 }
 
 .pp-item-title {
-    font-size: 24px;
+    font-size: 28px;
     font-weight: 700;
     color: #34495e;
     margin-bottom: 12px;
 }
 
 .pp-item-desc {
-    font-size: 14px;
-    line-height: 1.5;
+    font-size: 16px;
+    line-height: 1.6;
     color: #666;
 }
 
-.pp-img-container img {
-    width: 100%;
-    height: auto;
-    display: block;
-}
 
 /* Responsive */
-@media (max-width: 768px) {
+@media (max-width: 900px) {
+    .pp-timeline {
+        max-width: 100%;
+    }
+
+    .pp-item,
+    .pp-item-odd,
+    .pp-item-even {
+        flex-direction: column !important;
+        align-items: center;
+        text-align: center;
+        margin-bottom: 60px;
+    }
+
+    .pp-text-content {
+        width: 100%;
+        margin: 20px 0 !important;
+        text-align: center !important;
+    }
+
+    .pp-img-container {
+        width: 100%;
+        max-width: 400px;
+        margin: 0 !important;
+    }
+
+    .pp-dashed-line-svg {
+        display: none;
+        /* Hide complex path on mobile */
+    }
+
     .pp-header {
         flex-direction: column;
     }
 
     .pp-title {
-        font-size: 36px;
-    }
-
-    .pp-timeline {
-        display: flex;
-        flex-direction: column;
-    }
-
-    .pp-item {
-        flex-direction: column;
-        align-items: flex-start;
-        margin-bottom: 60px;
-    }
-
-    .pp-item-1 .pp-text-content,
-    .pp-item-2 .pp-text-content,
-    .pp-item-3 .pp-text-content,
-    .pp-item-4 .pp-text-content,
-    .pp-item-5 .pp-text-content {
-        margin: 20px 0 0 0;
-        max-width: 100%;
-    }
-
-    .pp-item-2,
-    .pp-item-4 {
-        align-items: flex-start;
-    }
-
-    .pp-dashed-line-svg {
-        display: none;
-        /* Hide complex line on mobile for now */
-    }
-
-    .pp-img-container {
-        width: 100px !important;
+        font-size: 32px;
     }
 }

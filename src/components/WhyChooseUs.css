@@ -15,6 +15,8 @@
     color: #222;
     margin-bottom: 80px;
     text-align: center;
+    max-width: 900px;
+    line-height: 1.2;
 }
 
 .wcu-container {
@@ -49,9 +51,17 @@
     color: #000;
 }
 
+.wcu-text-col p {
+    font-size: 16px;
+    line-height: 1.6;
+    color: #444;
+    margin-bottom: 20px;
+}
+
 .wcu-text-col ul {
-    list-style-type: disc;
-    padding-left: 20px;
+    list-style-type: none;
+    /* Changed from disc to none for icons */
+    padding-left: 0;
     margin-bottom: 30px;
     color: #444;
 }
@@ -59,7 +69,10 @@
 .wcu-text-col li {
     font-size: 16px;
     line-height: 1.6;
-    margin-bottom: 10px;
+    margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
 }
 
 .wcu-read-more {
@@ -83,7 +96,7 @@
     position: relative;
     width: 100%;
     overflow: hidden;
-    /* Optional: shadow or border radius if needed, image looks clean in design */
+    border-radius: 12px;
 }
 
 .wcu-img {
@@ -112,10 +125,33 @@
     padding: 15px 0;
 }
 
-/* Icon overlay for sustainable - hard to do perfectly with CSS only without icons, 
-   but the generated image should have them. 
-   If not, I might need to add simple overlays if the user demands exact icons not in image.
-   Assuming generated image is sufficient for now. */
+/* Icon Grid Styles for the visual suggestion */
+.wcu-icon-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+}
+
+.wcu-icon-card {
+    background: white;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 10px;
+}
+
+.wcu-icon-card svg {
+    color: #314b6e;
+}
+
+.wcu-icon-card span {
+    font-weight: 600;
+    font-size: 14px;
+}
 
 @media (max-width: 900px) {
     .wcu-row {
